@@ -4,26 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Luxury Holiday Caravan - Book your perfect coastal escape for 2026">
-    <title>Luxury Holiday Caravan - Coastal Retreat</title>
-    
-    <!-- Google Fonts -->
+    <title>Nikki and Johns Caravans - Coastal Retreat</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    
-    <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
 </head>
-<body ng-controller="MainController">
+<body ng-controller="MainController" ng-class="{'dark-mode': darkMode}">
     
-    <!-- Hero Section -->
+    <header class="top-header">
+        <div class="container header-content">
+            <div class="copyright-info">
+                <span>&copy; 2026 Nikki and Johns Caravans</span>
+                <span class="separator">•</span>
+                <span>Website made by SorynTech</span>
+            </div>
+            <button class="dark-mode-toggle" ng-click="toggleDarkMode()" aria-label="Toggle dark mode">
+                <svg ng-if="!darkMode" viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg ng-if="darkMode" viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
     <section class="hero">
         <div class="hero-content">
             <h1 class="fade-in-up">Your Coastal Escape Awaits</h1>
-            <p class="fade-in-up delay-1">Luxury Holiday Caravan • Comfort • Relaxation</p>
+            <p class="fade-in-up delay-1">6 Berth Caravan • Palm Grove • Comfort • Relaxation</p>
             <a href="#contact" class="cta-button fade-in-up delay-2">Book Your Stay</a>
+            <p class="booking-notice">Bookings open 11th March 2026</p>
         </div>
         <div class="scroll-indicator">
             <svg viewBox="0 0 24 24">
@@ -32,7 +44,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="section features-section">
         <div class="container">
             <h2 class="section-title">Why Choose Us</h2>
@@ -50,7 +61,6 @@
         </div>
     </section>
 
-    <!-- Exterior Gallery Section -->
     <section class="section exterior-section">
         <div class="container">
             <h2 class="section-title">Exterior Views</h2>
@@ -61,15 +71,12 @@
                      ng-click="openModal(image.src)"
                      ng-style="{'animation-delay': ($index * 0.05) + 's'}">
                     <img ng-src="{{image.src}}" alt="{{image.alt}}">
-                    <div class="gallery-overlay">
-                        <span>View</span>
-                    </div>
+                    <div class="gallery-overlay"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interior Gallery Section -->
     <section class="section interior-section" id="gallery">
         <div class="container">
             <h2 class="section-title">Interior Spaces</h2>
@@ -80,15 +87,12 @@
                      ng-click="openModal(image.src)"
                      ng-style="{'animation-delay': ($index * 0.05) + 's'}">
                     <img ng-src="{{image.src}}" alt="{{image.alt}}">
-                    <div class="gallery-overlay">
-                        <span>View</span>
-                    </div>
+                    <div class="gallery-overlay"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section class="section pricing-section" id="pricing">
         <div class="container">
             <h2 class="section-title">Pricing Options</h2>
@@ -105,12 +109,11 @@
                 </div>
             </div>
             <div class="availability-notice">
-                Now taking bookings for 2026 season
+                Bookings open 11th March 2026
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="section contact-section" id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
@@ -119,26 +122,16 @@
                 <div class="contact-item">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24">
-                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
-                    </div>
-                    <h3>Call Us</h3>
-                    <a href="tel:+447808550201">+44 7808 550201</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24">
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
                     </div>
                     <h3>Facebook</h3>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
+                    <a href="https://www.facebook.com/groups/814358534967444" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal -->
     <div class="modal" ng-class="{'active': modalImage}" ng-click="closeModal()">
         <span class="close-modal">&times;</span>
         <div class="modal-content">
@@ -146,14 +139,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Luxury Holiday Caravan. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
     <script src="./js/app.js"></script>
 </body>
 </html>

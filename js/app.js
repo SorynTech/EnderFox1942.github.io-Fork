@@ -1,61 +1,51 @@
-// ===================================
-// Angular App Initialization
-// ===================================
 var app = angular.module('holidayCaravan', ['ngAnimate']);
 
-// ===================================
-// Main Controller
-// ===================================
 app.controller('MainController', ['$scope', '$window', function($scope, $window) {
     
-    // Modal state
     $scope.modalImage = null;
+    $scope.darkMode = localStorage.getItem('darkMode') === 'true';
 
-    // ===================================
-    // Features Data
-    // ===================================
     $scope.features = [
         {
-            icon: 'M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.75-.93-6-4.79-6-9V8.3l6-3.27 6 3.27V11c0 4.21-2.25 8.07-6 9z',
+            icon: 'M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z',
             title: 'Safe & Secure',
             description: 'Located in a peaceful, family-friendly holiday park with 24/7 security'
         },
         {
             icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z',
-            title: 'Prime Location',
-            description: 'Easy access to local attractions, beaches, and entertainment venues'
+            title: '6 Berth Caravan',
+            description: 'Palm Grove - Spacious accommodation for up to 6 guests'
         },
         {
-            icon: 'M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z',
-            title: 'Fully Equipped',
-            description: 'Modern kitchen, comfortable bedrooms, spacious living area, and private patio'
+            icon: 'M7 18h10V6H7v12zm5.5-10h1v3H16v1h-2.5v3h-1v-3H10v-1h2.5V8zM21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z',
+            title: 'Smart TV & WiFi',
+            description: 'Smart TV in all rooms plus free WiFi throughout'
+        },
+        {
+            icon: 'M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z',
+            title: 'Wrap Around Veranda',
+            description: 'Private outdoor space with comfortable seating area'
+        },
+        {
+            icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z',
+            title: 'All Amenities Included',
+            description: 'Central heating, bedding made up, private parking, cotbed, bed guards, highchair and pushchair available on request'
         },
         {
             icon: 'M17.5 4.5c-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5-1.45 0-2.99.22-4.28.79C1.49 5.62 1 6.33 1 7.14v11.28c0 1.3 1.22 2.26 2.48 1.94.98-.25 2.02-.36 3.02-.36 1.56 0 3.22.26 4.56.92.6.3 1.28.3 1.87 0 1.34-.67 3-.92 4.56-.92 1 0 2.04.11 3.02.36 1.26.33 2.48-.63 2.48-1.94V7.14c0-.81-.49-1.52-1.22-1.85-1.28-.57-2.82-.79-4.27-.79zM21 17.23c0 .63-.58 1.09-1.2.98-.75-.14-1.53-.2-2.3-.2-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5.92 0 1.83.09 2.7.28.46.1.8.51.8.98v9.47z',
             title: 'Book with Ease',
-            description: 'Simple booking process with flexible dates for 2026 season'
+            description: 'Simple booking process - Bookings open 11th March 2026'
         }
     ];
 
-    // ===================================
-    // Exterior Images Data
-    // ===================================
     $scope.exteriorImages = [
         { 
             src: './data/images/frontalview.jpg', 
-            alt: 'Frontal View of Holiday Caravan' 
+            alt: 'Frontal View' 
         },
         { 
             src: './data/images/sideview.jpg', 
-            alt: 'Side View of Caravan' 
-        },
-        { 
-            src: './data/images/607295468_3336085309901587_7821637476024097109_n.jpg', 
-            alt: 'Exterior View' 
-        },
-        { 
-            src: './data/images/605223774_3336085483234903_9022047593420434258_n.jpg', 
-            alt: 'Caravan Exterior' 
+            alt: 'Side View' 
         },
         { 
             src: './data/images/607687752_3336085886568196_1730067545753158373_n.jpg', 
@@ -63,7 +53,7 @@ app.controller('MainController', ['$scope', '$window', function($scope, $window)
         },
         { 
             src: './data/images/patio.jpg', 
-            alt: 'Private Patio Area' 
+            alt: 'Private Patio' 
         },
         { 
             src: './data/images/patio2.jpg', 
@@ -71,25 +61,30 @@ app.controller('MainController', ['$scope', '$window', function($scope, $window)
         }
     ];
 
-    // ===================================
-    // Interior Images Data
-    // ===================================
     $scope.interiorImages = [
         { 
+            src: './data/images/605223774_3336085483234903_9022047593420434258_n.jpg', 
+            alt: 'Interior View' 
+        },
+        { 
+            src: './data/images/607295468_3336085309901587_7821637476024097109_n.jpg', 
+            alt: 'Living Area' 
+        },
+        { 
             src: './data/images/livingspace.jpg', 
-            alt: 'Living Space Overview' 
+            alt: 'Living Space' 
         },
         { 
             src: './data/images/living_space.jpg', 
-            alt: 'Comfortable Living Area' 
+            alt: 'Living Room' 
         },
         { 
             src: './data/images/living_space2.jpg', 
-            alt: 'Spacious Living Room' 
+            alt: 'Spacious Living' 
         },
         { 
             src: './data/images/kitchen.jpg', 
-            alt: 'Fully Equipped Modern Kitchen' 
+            alt: 'Modern Kitchen' 
         },
         { 
             src: './data/images/dining.jpg', 
@@ -101,15 +96,15 @@ app.controller('MainController', ['$scope', '$window', function($scope, $window)
         },
         { 
             src: './data/images/bedroom.jpg', 
-            alt: 'Second Bedroom' 
+            alt: 'Bedroom' 
         },
         { 
             src: './data/images/shower.jpg', 
-            alt: 'Modern Shower Room' 
+            alt: 'Shower Room' 
         },
         { 
             src: './data/images/hallway.jpg', 
-            alt: 'Interior Hallway' 
+            alt: 'Hallway' 
         },
         { 
             src: './data/images/asasas.jpg', 
@@ -117,9 +112,6 @@ app.controller('MainController', ['$scope', '$window', function($scope, $window)
         }
     ];
 
-    // ===================================
-    // Pricing Options Data
-    // ===================================
     $scope.pricingOptions = [
         {
             title: 'Weekend Break',
@@ -169,24 +161,21 @@ app.controller('MainController', ['$scope', '$window', function($scope, $window)
         }
     ];
 
-    // ===================================
-    // Modal Functions
-    // ===================================
+    $scope.toggleDarkMode = function() {
+        $scope.darkMode = !$scope.darkMode;
+        localStorage.setItem('darkMode', $scope.darkMode);
+    };
+
     $scope.openModal = function(imageSrc) {
         $scope.modalImage = imageSrc;
-        // Prevent body scroll when modal is open
         angular.element(document.body).css('overflow', 'hidden');
     };
 
     $scope.closeModal = function() {
         $scope.modalImage = null;
-        // Restore body scroll
         angular.element(document.body).css('overflow', 'auto');
     };
 
-    // ===================================
-    // Smooth Scroll Function
-    // ===================================
     $scope.scrollToSection = function(sectionId) {
         var element = document.getElementById(sectionId);
         if (element) {
@@ -197,18 +186,6 @@ app.controller('MainController', ['$scope', '$window', function($scope, $window)
         }
     };
 
-    // ===================================
-    // Analytics & Tracking (Optional)
-    // ===================================
-    $scope.trackEvent = function(category, action, label) {
-        // Placeholder for analytics tracking
-        // Can integrate Google Analytics, Facebook Pixel, etc.
-        console.log('Event tracked:', category, action, label);
-    };
-
-    // ===================================
-    // Keyboard Navigation for Modal
-    // ===================================
     angular.element($window).on('keydown', function(event) {
         if (event.key === 'Escape' && $scope.modalImage) {
             $scope.$apply(function() {
@@ -217,25 +194,13 @@ app.controller('MainController', ['$scope', '$window', function($scope, $window)
         }
     });
 
-    // ===================================
-    // Initialize
-    // ===================================
     $scope.init = function() {
-        console.log('Holiday Caravan App Initialized');
-        console.log('Total Exterior Images:', $scope.exteriorImages.length);
-        console.log('Total Interior Images:', $scope.interiorImages.length);
-        console.log('Pricing Options:', $scope.pricingOptions.length);
+        console.log('Nikki and Johns Caravans - Website Initialized');
     };
 
-    // Call initialization
     $scope.init();
 }]);
 
-// ===================================
-// Directives
-// ===================================
-
-// Lazy Load Images Directive
 app.directive('lazyLoad', function() {
     return {
         restrict: 'A',
@@ -254,7 +219,6 @@ app.directive('lazyLoad', function() {
     };
 });
 
-// Fade In on Scroll Directive
 app.directive('fadeInOnScroll', ['$window', function($window) {
     return {
         restrict: 'A',
@@ -272,11 +236,6 @@ app.directive('fadeInOnScroll', ['$window', function($window) {
     };
 }]);
 
-// ===================================
-// Filters
-// ===================================
-
-// Price Filter
 app.filter('currency', function() {
     return function(input) {
         if (!input) return input;
@@ -284,21 +243,13 @@ app.filter('currency', function() {
     };
 });
 
-// ===================================
-// Services (for future expansion)
-// ===================================
-
-// Booking Service
 app.service('BookingService', function() {
     this.createBooking = function(bookingData) {
-        // Placeholder for booking logic
-        // Could integrate with backend API
         console.log('Booking created:', bookingData);
         return bookingData;
     };
 
     this.validateDates = function(startDate, endDate) {
-        // Date validation logic
         return startDate < endDate;
     };
 
@@ -308,25 +259,16 @@ app.service('BookingService', function() {
     };
 });
 
-// Contact Service
 app.service('ContactService', function() {
     this.sendMessage = function(messageData) {
-        // Placeholder for contact form submission
         console.log('Message sent:', messageData);
         return true;
     };
 });
 
-// ===================================
-// Run Block
-// ===================================
 app.run(['$rootScope', function($rootScope) {
-    // Global app configuration
-    $rootScope.appName = 'Luxury Holiday Caravan';
+    $rootScope.appName = 'Nikki and Johns Caravans';
     $rootScope.currentYear = new Date().getFullYear();
     
-    // SEO and meta tags
-    document.title = 'Luxury Holiday Caravan - Coastal Retreat';
-    
-    console.log('Holiday Caravan App Running');
+    document.title = 'Nikki and Johns Caravans - Coastal Retreat';
 }]);

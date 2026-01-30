@@ -1,207 +1,239 @@
-# Luxury Holiday Caravan Website
+# Holiday Caravan Booking Website
 
-A professional, modern website for a luxury holiday caravan rental built with AngularJS, CSS3, and responsive design principles.
+This is a website for advertising and booking a holiday caravan. The website is designed to be easy to use and looks good on phones, tablets, and computers.
 
-## 🌟 Features
+## What This Website Does
 
-- **Professional Design**: Elegant gradient-based design with smooth animations
-- **Responsive Layout**: Fully responsive design that works on all devices
-- **AngularJS Framework**: Professional JavaScript framework for scalability
-- **Separated Exterior/Interior Galleries**: Images organized into logical sections
-- **Interactive Pricing Cards**: Clear pricing options with hover effects
-- **Modal Image Viewer**: Click any image to view it in full size
-- **Contact Section**: Easy-to-find contact information with icons
-- **Smooth Animations**: Professional fade-in and scroll animations
+This website shows pictures of the caravan and lets people see pricing information. They can contact you through Facebook to make a booking.
 
-## 📁 Project Structure
+The website has:
+- A light mode (normal colors) and dark mode (black background)
+- Pictures of the outside of the caravan
+- Pictures of the inside of the caravan
+- Prices for different types of stays
+- A way to contact you on Facebook
+
+## File Structure
 
 ```
 holiday-caravan/
-├── index.html              # Main HTML file
+├── index.html              # Main HTML page
 ├── css/
-│   └── style.css          # All styles and responsive design
+│   └── style.css          # All styling and colors
 ├── js/
 │   └── app.js             # AngularJS application logic
 ├── data/
-│   └── images/            # All caravan images
+│   └── images/            # All caravan images (17 total)
 │       ├── frontalview.jpg
 │       ├── sideview.jpg
 │       ├── livingspace.jpg
-│       └── ... (all other images)
-└── README.md              # This file
+│       ├── kitchen.jpg
+│       ├── bedroom.jpg
+│       └── ... (12 more images)
+├── robots.txt             # AI scraper protection
+├── README.md              # This file
+└── QUICKSTART.md          # Quick deployment guide
 ```
 
-## 🚀 Deployment to GitHub Pages
+## Deployment to GitHub Pages
 
-### Step 1: Create a GitHub Repository
+### Step 1: Create GitHub Account
+1. Go to https://github.com
+2. Sign up for free account
+3. Verify your email
 
-1. Go to [GitHub](https://github.com) and sign in
-2. Click the "+" icon in the top right corner
-3. Select "New repository"
-4. Name your repository (e.g., `holiday-caravan`)
-5. Make it **Public**
+### Step 2: Create Repository
+1. Click the "+" icon (top right)
+2. Select "New repository"
+3. Repository name: `holiday-caravan`
+4. Description: "Holiday caravan booking website"
+5. Make it Public
 6. Click "Create repository"
 
-### Step 2: Upload Files
+### Step 3: Upload Files
+1. Click "uploading an existing file"
+2. Drag and drop ALL files from the `holiday-caravan` folder
+3. Write commit message: "Initial website deployment"
+4. Click "Commit changes"
 
-**Option A: Using GitHub Web Interface**
+### Step 4: Enable GitHub Pages
+1. Go to repository Settings
+2. Click "Pages" in left sidebar
+3. Under "Source", select "main" branch
+4. Click "Save"
+5. Wait 2-5 minutes
 
-1. On your repository page, click "uploading an existing file"
-2. Drag and drop ALL files and folders from the `holiday-caravan` directory
-3. Commit the changes
-
-**Option B: Using Git Command Line**
-
-```bash
-# Navigate to your project directory
-cd holiday-caravan
-
-# Initialize git repository
-git init
-
-# Add all files
-git add .
-
-# Commit files
-git commit -m "Initial commit - Holiday Caravan Website"
-
-# Add remote repository (replace YOUR-USERNAME and YOUR-REPO)
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
-
-# Push to GitHub
-git branch -M main
-git push -u origin main
+### Step 5: Access Your Site
+Your website will be live at:
+```
+https://YOUR-USERNAME.github.io/holiday-caravan/
 ```
 
-### Step 3: Enable GitHub Pages
+Replace `YOUR-USERNAME` with your actual GitHub username.
 
-1. Go to your repository on GitHub
-2. Click on "Settings" tab
-3. Scroll down to "Pages" in the left sidebar
-4. Under "Source", select "main" branch
-5. Click "Save"
-6. Your site will be published at: `https://YOUR-USERNAME.github.io/YOUR-REPO/`
+## How To Change Pricing
 
-### Step 4: Wait and Access
-
-- GitHub Pages takes a few minutes to build and deploy
-- Once ready, visit your URL to see the live site
-- Any updates you push to the main branch will automatically redeploy
-
-## 📝 Customization Guide
-
-### Updating Images
-
-1. Place new images in the `data/images/` folder
-2. Update the image arrays in `js/app.js`:
-   - `$scope.exteriorImages` for exterior photos
-   - `$scope.interiorImages` for interior photos
-
-### Updating Pricing
-
-Edit the `$scope.pricingOptions` array in `js/app.js`:
+1. Open the file: `js/app.js`
+2. Find the section that starts with: `$scope.pricingOptions = [`
+3. You'll see something like this:
 
 ```javascript
 {
-    title: 'Your Package Name',
-    price: '£XXX',
-    duration: 'Your Duration',
+    title: 'Weekend Break',
+    price: '£225',
+    duration: 'Friday - Monday',
     features: [
-        'Feature 1',
-        'Feature 2',
-        'Feature 3'
+        'Perfect for quick getaway',
+        '3 nights included',
+        'Full access to facilities',
+        'Flexible check-in times'
     ]
 }
 ```
 
-### Updating Contact Information
+4. Change the `price: '£225'` to your new price
+5. Change any text in the `features` array
+6. Save the file
+7. Upload to GitHub (if already deployed)
 
-Edit the contact section in `index.html`:
+## How To Change Colors
 
-```html
-<a href="tel:+44XXXXXXXXXX">+44 XXXX XXXXXX</a>
-```
-
-### Changing Colors
-
-Edit CSS variables in `css/style.css`:
+1. Open the file: `css/style.css`
+2. Find the `:root {` section at the top
+3. You'll see color codes like this:
 
 ```css
 :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --accent-color: #667eea;
+    --primary-gradient: linear-gradient(135deg, #0077be 0%, #20b2aa 100%);
+    --secondary-gradient: linear-gradient(135deg, #40e0d0 0%, #ff7f50 100%);
+    --accent-color: #0077be;
+    --text-dark: #0d2f3f;
+    --text-light: #ffffff;
 }
 ```
 
-## 🛠️ Technologies Used
+4. Change the color codes:
+   - `#0077be` = Ocean blue
+   - `#20b2aa` = Light sea green
+   - `#40e0d0` = Turquoise
+   - `#ff7f50` = Coral
+   
+5. Use a color picker tool like: https://htmlcolorcodes.com/
+6. Replace the codes with your chosen colors
+7. Save the file
+8. Upload to GitHub (if already deployed)
 
-- **HTML5**: Semantic markup
-- **CSS3**: Advanced styling with gradients, animations, and flexbox/grid
-- **AngularJS 1.8.2**: JavaScript framework for dynamic content
-- **Google Fonts**: Playfair Display and Inter fonts
-- **Responsive Design**: Mobile-first approach
+### Common Color Changes
 
-## 🎨 Design Features
+To change the main theme color:
+- Find: `--accent-color: #0077be;`
+- Replace `#0077be` with your color code
 
-- Gradient backgrounds for modern look
-- Smooth hover animations
-- Modal image viewer
-- Responsive grid layouts
-- Professional typography
-- Optimized for performance
+To change button colors:
+- Find: `--primary-gradient`
+- Change both color codes in the gradient
 
-## 📱 Browser Support
+To change text color:
+- Find: `--text-dark: #0d2f3f;`
+- Replace with your preferred dark color
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+## How The Website Is Organized
 
-## 📞 Contact Information
+The website is made up of several files:
 
-- **Phone**: +44 7808 550201
-- **Facebook**: [Link to Facebook page]
+- index.html - This is the main page that people see
+- style.css - This controls how everything looks (colors, spacing, fonts)
+- app.js - This makes the website interactive (dark mode, picture viewing)
+- robots.txt - This stops robots from copying your pictures
+- Images folder - Contains all the photos of the caravan
 
-## 📄 License
+## What The Caravan Has
 
-This project is for personal/commercial use for the holiday caravan rental business.
+The website lists these features:
+- Sleeps 6 people
+- Located at Palm Grove
+- Veranda with seating around the outside
+- Central heating
+- Parking space
+- Smart TV in every room
+- Free WiFi
+- Beds already made up when you arrive
+- Can provide: cot bed, bed guards, high chair, and pushchair if asked
 
-## 🔄 Updates and Maintenance
+## When Bookings Open
 
-To update the website after initial deployment:
+The website says bookings open on 11th March 2026.
 
-1. Make changes to your local files
-2. Commit changes: `git add . && git commit -m "Description of changes"`
-3. Push to GitHub: `git push origin main`
-4. GitHub Pages will automatically rebuild (takes 2-5 minutes)
+## How People Contact You
 
-## 💡 Tips
+There is a Facebook button that links to: https://www.facebook.com/groups/814358534967444
 
-- Keep image file sizes under 500KB for faster loading
-- Use descriptive alt text for all images
-- Test on mobile devices before deploying
-- Consider adding Google Analytics for visitor tracking
-- Back up your images regularly
+People can click this to message you about bookings.
 
-## 🐛 Troubleshooting
+## If You Want To Change Something
 
-**Images not showing:**
-- Check that image paths are correct (`./data/images/filename.jpg`)
-- Ensure all images are uploaded to GitHub
-- Verify image file names match exactly (case-sensitive)
+If you want to change prices:
+- Open the file called app.js
+- Find the section that says "pricingOptions"
+- Change the numbers there
 
-**Site not updating:**
-- Clear browser cache
-- Wait 5 minutes for GitHub Pages to rebuild
-- Check GitHub Actions tab for build errors
+If you want to change colors:
+- Open the file called style.css
+- Look at the top where it says ":root"
+- Change the color codes there
 
-**Layout issues on mobile:**
-- Test using browser DevTools mobile view
-- Check that viewport meta tag is present
-- Verify CSS media queries are working
+If you want to add or remove pictures:
+- Put new pictures in the images folder
+- Open app.js
+- Add the picture names to either "exteriorImages" or "interiorImages"
+
+## What You Need To Use The Website
+
+The website works on:
+- Chrome browser
+- Firefox browser  
+- Safari browser
+- Edge browser
+- Phone browsers
+- Tablet browsers
+
+You don't need to install anything. Just visit the web address and it works.
+
+## Protection From Robots
+
+The robots.txt file stops computer programs from:
+- Copying your images to train AI
+- Putting your images on Google Images
+- Archiving your website without permission
+
+This helps keep your pictures safe and yours.
+
+## Technical Details
+
+The website is built using:
+- HTML5 (the structure)
+- CSS3 (the styling)
+- AngularJS 1.8.2 (the interactive parts)
+- Google Fonts for nice text
+
+## Coding Support
+
+If you need help with the code, you can contact SorynTech:
+
+[![GitHub](https://img.shields.io/badge/GitHub-soryntech-181717?style=for-the-badge&logo=github)](https://github.com/soryntech) [![GitLab](https://img.shields.io/badge/GitLab-soryntech-FCA121?style=for-the-badge&logo=gitlab)](https://gitlab.com/soryntech) [![Discord](https://img.shields.io/badge/Discord-soryntech-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com)
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+Copyright (c) 2026 SorynTech
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
 
 ---
 
-Built with ❤️ for luxury coastal getaways
+Note: Whilst SorynTech made this website, it is exempt from the SorynTech Suite of applications and websites.
