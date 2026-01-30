@@ -23,6 +23,8 @@ holiday-caravan/
 ├── js/
 │   └── app.js             # AngularJS application logic
 ├── data/
+│   ├── favicon/           # Favicon directory
+│   │   └── favicon.ico   # Browser tab icon (place your icon here)
 │   └── images/            # All caravan images (17 total)
 │       ├── frontalview.jpg
 │       ├── sideview.jpg
@@ -31,8 +33,7 @@ holiday-caravan/
 │       ├── bedroom.jpg
 │       └── ... (12 more images)
 ├── robots.txt             # AI scraper protection
-├── README.md              # This file
-└── QUICKSTART.md          # Quick deployment guide
+└──── README.md              # This file
 ```
 
 ## Deployment to GitHub Pages
@@ -45,14 +46,14 @@ holiday-caravan/
 ### Step 2: Create Repository
 1. Click the "+" icon (top right)
 2. Select "New repository"
-3. Repository name: `holiday-caravan`
+3. Repository name: `[Your Username].github.io`
 4. Description: "Holiday caravan booking website"
 5. Make it Public
 6. Click "Create repository"
 
 ### Step 3: Upload Files
 1. Click "uploading an existing file"
-2. Drag and drop ALL files from the `holiday-caravan` folder
+2. Drag and drop ALL files from the `[Your Username].github.io` folder
 3. Write commit message: "Initial website deployment"
 4. Click "Commit changes"
 
@@ -66,7 +67,7 @@ holiday-caravan/
 ### Step 5: Access Your Site
 Your website will be live at:
 ```
-https://YOUR-USERNAME.github.io/holiday-caravan/
+https://YOUR-USERNAME.github.io
 ```
 
 Replace `YOUR-USERNAME` with your actual GitHub username.
