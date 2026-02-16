@@ -2,39 +2,110 @@
 
 This is a website for advertising and booking a holiday caravan. The website is designed to be easy to use and looks good on phones, tablets, and computers.
 
+## Technology Stack
+
+This website is built using modern web technologies:
+
+- **React 19** - Modern UI library for building interactive user interfaces
+- **TypeScript** - Type-safe JavaScript for better code quality and developer experience
+- **Vite** - Fast build tool and development server
+- **CSS3** - Custom styling with dark mode support
+
 ## What This Website Does
 
 This website shows pictures of the caravan and lets people see pricing information. They can contact you through Facebook to make a booking.
 
 The website has:
 - A light mode (normal colors) and dark mode (black background)
+- Skeleton loading screens for better user experience
+- Protected images with watermarks to prevent unauthorized use
 - Pictures of the outside of the caravan
 - Pictures of the inside of the caravan
 - Prices for different types of stays
 - A way to contact you on Facebook
 
+## Features
+
+- **Skeleton Loading**: Smooth loading experience with skeleton screens shown for 0.5 seconds
+- **Image Protection**: All images include "Niki-and-John" watermark and cannot be right-clicked or saved
+- **Responsive Design**: Works perfectly on phones, tablets, and desktop computers
+- **Dark Mode**: Toggle between light and dark themes with persistent preference
+- **Modern Architecture**: Built with React components for maintainability
+
 ## File Structure
 
 ```
 holiday-caravan/
-├── index.html              # Main HTML page
+├── index.html              # Main HTML entry point for React app
+├── package.json            # Node.js dependencies and scripts
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite build configuration
+├── src/
+│   ├── main.tsx           # React application entry point
+│   ├── App.tsx            # Main application component
+│   ├── App.css            # Application styles (imports original CSS)
+│   ├── components/        # React components
+│   │   ├── Header.tsx     # Top header with dark mode toggle
+│   │   ├── Hero.tsx       # Hero section
+│   │   ├── Features.tsx   # Features grid section
+│   │   ├── Gallery.tsx    # Image gallery component
+│   │   ├── Pricing.tsx    # Pricing cards section
+│   │   ├── Contact.tsx    # Contact section
+│   │   ├── Modal.tsx      # Image modal popup
+│   │   ├── ProtectedImage.tsx  # Watermarked image component
+│   │   └── Skeleton.tsx   # Skeleton loading components
+│   ├── data/
+│   │   └── index.ts       # Application data (features, images, pricing)
+│   └── types/
+│       └── index.ts       # TypeScript type definitions
 ├── css/
-│   └── style.css          # All styling and colors
-├── js/
-│   └── app.js             # AngularJS application logic
+│   └── style.css          # Original styling (imported by App.css)
 ├── data/
 │   ├── favicon/           # Favicon directory
-│   │   └── favicon.ico   # Browser tab icon (place your icon here)
+│   │   └── favicon.ico   # Browser tab icon
 │   └── images/            # All caravan images (17 total)
 │       ├── frontalview.jpg
 │       ├── sideview.jpg
-│       ├── livingspace.jpg
-│       ├── kitchen.jpg
-│       ├── bedroom.jpg
-│       └── ... (12 more images)
+│       └── ... (15 more images)
+├── Before react folder/   # Original AngularJS files (archived)
+│   ├── index.html         # Original HTML file
+│   └── js/
+│       └── app.js         # Original AngularJS application
 ├── robots.txt             # AI scraper protection
-└──── README.md              # This file
+├── .github/
+│   └── workflows/
+│       └── deploy.yml     # GitHub Actions workflow for deployment
+└── README.md              # This file
 ```
+
+## Development
+
+### Prerequisites
+- Node.js 20 or higher
+- npm (comes with Node.js)
+
+### Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+5. Preview production build:
+   ```bash
+   npm run preview
+   ```
 
 ## Deployment to GitHub Pages
 
@@ -53,9 +124,16 @@ holiday-caravan/
 
 ### Step 3: Upload Files
 1. Click "uploading an existing file"
-2. Drag and drop ALL files from the `[Your Username].github.io` folder
-3. Write commit message: "Initial website deployment"
-4. Click "Commit changes"
+2. Run `npm run build` locally to create the dist folder
+3. Drag and drop ALL files from the `dist` folder
+4. Write commit message: "Initial website deployment"
+5. Click "Commit changes"
+
+### Alternative: Automatic Deployment with GitHub Actions
+The repository includes a GitHub Actions workflow that automatically builds and deploys the site:
+1. Push your code to the main branch
+2. The workflow will automatically build the React app
+3. The built site will be deployed to GitHub Pages
 
 ### Step 4: Enable GitHub Pages
 1. Go to repository Settings
@@ -74,28 +152,29 @@ Replace `YOUR-USERNAME` with your actual GitHub username.
 
 ## How To Change Pricing
 
-1. Open the file: `js/app.js`
-2. Find the section that starts with: `$scope.pricingOptions = [`
-3. You'll see something like this:
+1. Open the file: `src/data/index.ts`
+2. Find the section that starts with: `export const pricingOptions: PricingOption[] = [`
+3. You'll see TypeScript objects like this:
 
-```javascript
+```typescript
 {
-    title: 'Weekend Break',
-    price: '£225',
-    duration: 'Friday - Monday',
-    features: [
-        'Perfect for quick getaway',
-        '3 nights included',
-        'Full access to facilities',
-        'Flexible check-in times'
-    ]
+  title: 'Weekend Break',
+  price: '£225',
+  duration: 'Friday - Monday',
+  features: [
+    'Perfect for quick getaway',
+    '3 nights included',
+    'Full access to facilities',
+    'Flexible check-in times'
+  ]
 }
 ```
 
 4. Change the `price: '£225'` to your new price
 5. Change any text in the `features` array
 6. Save the file
-7. Upload to GitHub (if already deployed)
+7. Run `npm run build` to rebuild
+8. Push to GitHub (if using automatic deployment)
 
 ## How To Change Colors
 
@@ -140,13 +219,28 @@ To change text color:
 
 ## How The Website Is Organized
 
-The website is made up of several files:
+The website is now built with React and TypeScript:
 
-- index.html - This is the main page that people see
-- style.css - This controls how everything looks (colors, spacing, fonts)
-- app.js - This makes the website interactive (dark mode, picture viewing)
-- robots.txt - This stops robots from copying your pictures
-- Images folder - Contains all the photos of the caravan
+- **src/main.tsx** - Entry point that initializes the React application
+- **src/App.tsx** - Main application component that manages state and layout
+- **src/components/** - Individual React components for each section
+- **src/data/index.ts** - All website content (features, images, pricing)
+- **src/types/index.ts** - TypeScript type definitions
+- **css/style.css** - Original styling (imported by App.css)
+- **data/images/** - All the photos of the caravan
+
+### Component Structure
+
+Each section of the website is now a separate React component:
+- **Header**: Top banner with copyright and dark mode toggle
+- **Hero**: Main banner with call-to-action
+- **Features**: Grid of features with icons
+- **Gallery**: Reusable image gallery for exterior/interior photos
+- **Pricing**: Pricing cards with options
+- **Contact**: Contact information and Facebook link
+- **Modal**: Image popup viewer
+- **ProtectedImage**: Special component that adds watermarks and prevents downloads
+- **Skeleton**: Loading placeholder components
 
 ## What The Caravan Has
 
@@ -174,25 +268,36 @@ People can click this to message you about bookings.
 ## If You Want To Change Something
 
 If you want to change prices:
-- Open the file called app.js
-- Find the section that says "pricingOptions"
-- Change the numbers there
+- Open the file `src/data/index.ts`
+- Find the section that says `pricingOptions`
+- Change the values there
+- Run `npm run build` and redeploy
 
 If you want to change colors:
-- Open the file called style.css
-- Look at the top where it says ":root"
+- Open the file `css/style.css`
+- Look at the top where it says `:root`
 - Change the color codes there
+- Run `npm run build` and redeploy
 
 If you want to add or remove pictures:
-- Put new pictures in the images folder
-- Open app.js
-- Add the picture names to either "exteriorImages" or "interiorImages"
+- Put new pictures in the `data/images` folder
+- Open `src/data/index.ts`
+- Add the picture names to either `exteriorImages` or `interiorImages`
+- Run `npm run build` and redeploy
 
-## What You Need To Use The Website
+## Technical Details
 
+The website is built using:
+- **React 19** - Modern UI library
+- **TypeScript 5** - Type-safe JavaScript
+- **Vite 7** - Fast build tool and dev server
+- **CSS3** - Modern styling with custom properties
+- **Google Fonts** - Playfair Display and Inter fonts
+
+### Browser Support
 The website works on:
 - Chrome browser
-- Firefox browser  
+- Firefox browser
 - Safari browser
 - Edge browser
 - Phone browsers
@@ -209,13 +314,24 @@ The robots.txt file stops computer programs from:
 
 This helps keep your pictures safe and yours.
 
+## Image Protection
+
+All images on the website are now protected with:
+- **Watermarks**: Every image displays "Niki-and-John" watermark
+- **Right-click Protection**: Right-clicking on images is disabled
+- **Download Prevention**: Images cannot be saved via browser context menu
+- **Drag Prevention**: Images cannot be dragged and dropped
+
+These protections help ensure your images remain your property.
+
 ## Technical Details
 
 The website is built using:
-- HTML5 (the structure)
-- CSS3 (the styling)
-- AngularJS 1.8.2 (the interactive parts)
-- Google Fonts for nice text
+- **React 19** - Modern UI library
+- **TypeScript 5** - Type-safe JavaScript
+- **Vite 7** - Fast build tool and dev server
+- **CSS3** - Modern styling with custom properties
+- **Google Fonts** - Playfair Display and Inter fonts
 
 ## Coding Support
 

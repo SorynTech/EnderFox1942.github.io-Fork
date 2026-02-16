@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="holidayCaravan">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,139 +8,9 @@
     <link rel="icon" type="image/x-icon" href="./data/favicon/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="./data/favicon/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
 </head>
-<body ng-controller="MainController" ng-class="{'dark-mode': darkMode}">
-    
-    <header class="top-header">
-        <div class="container header-content">
-            <div class="copyright-info">
-                <span>&copy; 2026 Nikki and Johns Caravans</span>
-                <span class="separator">•</span>
-                <span>Website made by SorynTech</span>
-            </div>
-            <button class="dark-mode-toggle" ng-click="toggleDarkMode()" aria-label="Toggle dark mode">
-                <svg ng-if="!darkMode" viewBox="0 0 24 24" width="20" height="20">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-                <svg ng-if="darkMode" viewBox="0 0 24 24" width="20" height="20">
-                    <path d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z"/>
-                </svg>
-            </button>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in-up">Your Coastal Escape Awaits</h1>
-            <p class="fade-in-up delay-1">6 Berth Caravan • Palm Grove • Comfort • Relaxation</p>
-            <a href="#contact" class="cta-button fade-in-up delay-2">Book Your Stay</a>
-            <p class="booking-notice">Bookings open</p>
-        </div>
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 24 24">
-                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-            </svg>
-        </div>
-    </section>
-
-    <section class="section features-section">
-        <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <div class="features-grid">
-                <div class="feature-card" ng-repeat="feature in features" ng-style="{'animation-delay': ($index * 0.1) + 's'}">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path ng-attr-d="{{feature.icon}}"/>
-                        </svg>
-                    </div>
-                    <h3>{{feature.title}}</h3>
-                    <p>{{feature.description}}</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section exterior-section">
-        <div class="container">
-            <h2 class="section-title">Exterior Views</h2>
-            <p class="section-subtitle">Beautiful coastal setting with private outdoor space</p>
-            <div class="gallery">
-                <div class="gallery-item" 
-                     ng-repeat="image in exteriorImages" 
-                     ng-click="openModal(image.src)"
-                     ng-style="{'animation-delay': ($index * 0.05) + 's'}">
-                    <img ng-src="{{image.src}}" alt="{{image.alt}}">
-                    <div class="gallery-overlay"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section interior-section" id="gallery">
-        <div class="container">
-            <h2 class="section-title">Interior Spaces</h2>
-            <p class="section-subtitle">Comfortable and modern living areas</p>
-            <div class="gallery">
-                <div class="gallery-item" 
-                     ng-repeat="image in interiorImages" 
-                     ng-click="openModal(image.src)"
-                     ng-style="{'animation-delay': ($index * 0.05) + 's'}">
-                    <img ng-src="{{image.src}}" alt="{{image.alt}}">
-                    <div class="gallery-overlay"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section pricing-section" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Pricing Options</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card" ng-repeat="option in pricingOptions">
-                    <div class="summer-badge" ng-if="option.isSummer">Peak Season</div>
-                    <h3>{{option.title}}</h3>
-                    <div class="price">{{option.price}}</div>
-                    <div class="duration">{{option.duration}}</div>
-                    <ul class="features">
-                        <li ng-repeat="feature in option.features">{{feature}}</li>
-                    </ul>
-                    <p class="excludes-note" ng-if="option.excludes">*{{option.excludes}}</p>
-                </div>
-            </div>
-            <div class="availability-notice">
-                Bookings open
-            </div>
-        </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Contact us to book your perfect getaway</p>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </div>
-                    <h3>Facebook</h3>
-                    <a href="https://www.facebook.com/groups/814358534967444" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="modal" ng-class="{'active': modalImage}" ng-click="closeModal()">
-        <span class="close-modal">&times;</span>
-        <div class="modal-content">
-            <img ng-src="{{modalImage}}" alt="Enlarged view">
-        </div>
-    </div>
-
-    <script src="./js/app.js"></script>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
