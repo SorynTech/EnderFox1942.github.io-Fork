@@ -7,7 +7,7 @@ interface ProtectedImageProps {
   className?: string;
 }
 
-export const ProtectedImage: React.FC<ProtectedImageProps> = ({ src, onClick, className }) => {
+export const ProtectedImage: React.FC<ProtectedImageProps> = ({ src, alt, onClick, className }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -65,6 +65,8 @@ export const ProtectedImage: React.FC<ProtectedImageProps> = ({ src, onClick, cl
       onDragStart={handleDragStart}
       onClick={onClick}
       className={`${className} ${isLoaded ? 'loaded' : ''}`}
+      role="img"
+      aria-label={alt}
       style={{ 
         maxWidth: '100%', 
         height: 'auto',
