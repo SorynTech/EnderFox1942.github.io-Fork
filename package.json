@@ -1,0 +1,33 @@
+{
+  "name": "enderfox1942.github.io-fork",
+  "version": "1.0.0",
+  "description": "This is a website for advertising and booking a holiday caravan. The website is designed to be easy to use and looks good on phones, tablets, and computers.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SorynTech/EnderFox1942.github.io-Fork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SorynTech/EnderFox1942.github.io-Fork/issues"
+  },
+  "homepage": "https://github.com/SorynTech/EnderFox1942.github.io-Fork#readme",
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

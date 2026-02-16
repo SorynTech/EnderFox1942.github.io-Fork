@@ -301,6 +301,11 @@ FakesAssemblies/
 .ntvs_analysis.dat
 node_modules/
 
+# Vite and React build outputs
+dist/
+dist-ssr/
+*.local
+
 # Visual Studio 6 build log
 *.plg
 
